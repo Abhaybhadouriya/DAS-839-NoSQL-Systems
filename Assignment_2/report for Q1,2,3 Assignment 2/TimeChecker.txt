@@ -1,0 +1,3 @@
+1. Extract  file in a directory
+2. Copy TimeChecker.py in that directory
+3. Just run this command -> python3 TimeChecker.py

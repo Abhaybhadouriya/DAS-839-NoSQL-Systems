@@ -1,0 +1,120 @@
+----------------------------------------HIVE--------------------------------------------
+
+1. Start by downloading the a stable release (e.g, hive-4.0.1) of Hive from one of the Apache download mirrors.
+
+	$ wget https://dlcdn.apache.org/hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz  
+
+2. Next you need to unpack the tar file. This will result in the creation of a subdirectory named hive-x.y.z (where x.y.z is the release number):
+
+	$ tar -xzvf apache-hive-4.0.1-bin.tar.gz
+
+3. Set the environment variable HIVE_HOME to point to the installation directory and add $HIVE_HOME/bin to your PATH in ~/.bashrc
+
+	export HIVE_HOME=<path-to>/apache-hive-x.y.z-bin
+	export PATH=$HIVE_HOME/bin:$PATH
+
+4. Starting from Hive 2.1, we need to run the schematool command below as an initialization step. For example, we can use "derby" as db type. (Note: Configure Derby DB before this step)
+
+	$ rm -rf metastore_db/
+	$ schematool -dbType <db type> -initSchema   (e.g., $ schematool -dbType derby -initSchema)
+
+5. Start Beeline and HiveServer2 in the same process for getting a hive commadline. (Here we are using Beeline client to connect to the hive server..) Beeline is a client app which connects to HiveServer2; while running beeline as follows, no need to start hive explicitly.
+	
+$ beeline -u jdbc:hive2://
+
+Note: For this version of hive, use absolute path after the "LOCATION" clause.
+
+HiveQL Commands:
+
+SHOW TABLES;
+SHOW FUNCTIONS;
+
+CREATE TABLE complex_table (
+  col0 INT,
+  col1 ARRAY<INT>,
+  col2 MAP<STRING, INT>,
+  col3 STRUCT<a:STRING, b:INT, c:DOUBLE>)
+LOCATION 'mytables/complex_table';
+
+
+CREATE TABLE records (station int, year int, temperature int, quality int) 
+  ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+  LINES TERMINATED BY '\n'
+  STORED AS TEXTFILE
+  LOCATION 'mytables/records_table';
+
+--TRUNCATE TABLE table_name;
+-- LOAD DATA LOCAL INPATH './temperature-2014.tsv' INTO TABLE records;
+LOAD DATA LOCAL INPATH './temperature-2025.tsv' INTO TABLE records;
+
+Select * from records;
+
+SELECT quality, COUNT(*) AS count
+FROM records
+GROUP BY quality
+ORDER BY count DESC; 
+
+
+CREATE TABLE part_records (station int, year int, temperature int)
+  PARTITIONED BY (quality int)
+  CLUSTERED BY (year) SORTED BY (year ASC) INTO 4 BUCKETS 
+  ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+  LINES TERMINATED BY '\n'
+  STORED AS TEXTFILE
+  LOCATION 'mytables/part_records_table';
+
+
+
+-- STATIC PARTITIONING ---
+
+set hive.strict.checks.bucketing = false;
+
+LOAD DATA LOCAL INPATH './temperature-2025.tsv' INTO TABLE part_records PARTITION(quality=1);    
+
+--LOAD DATA LOCAL INPATH './temperature-2014.tsv' INTO TABLE part_records PARTITION(quality=1);
+
+
+
+-- DYNAMIC PARTITIONING ---
+
+SET hive.exec.dynamic.partition = true;
+SET hive.exec.dynamic.partition.mode = nonstrict;
+
+INSERT INTO TABLE part_records PARTITION(quality) 
+SELECT station, year, temperature, quality FROM records;
+
+
+CREATE TABLE partitioned_records2 (station int, year int, temperature int, quality int)
+  PARTITIONED BY (timestmp int)
+  CLUSTERED BY (year) SORTED BY (year ASC) INTO 4 BUCKETS 
+  ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' 
+  LINES TERMINATED BY '\n'
+  STORED AS TEXTFILE
+  LOCATION 'mytables/partitioned_records_table2';
+
+LOAD DATA LOCAL INPATH './temperature-2025.tsv' INTO TABLE part_records PARTITION(quality=1);  
+
+--LOAD DATA LOCAL INPATH './temperature-2014.tsv' INTO TABLE partitioned_records PARTITION(timestmp=28);
+
+
+
+To close the Beeline session when connected to Hive using:
+!quit;
+
+
+
+
+Configuring Derby DB
+--------------------
+
+Download:
+
+ $ wget http://archive.apache.org/dist/db/derby/db-derby-10.11.1.1/db-derby-10.11.1.1-bin.tar.gz
+
+ $ tar -xzvf db-derby-10.11.1.1-bin.tar.gz
+
+Set Path in ~./bashrc
+
+	export DERBY_HOME=<path-to>/db-derby-10.11.1.1-bin
+	export PATH=$PATH:$DERBY_HOME/bin
+	export CLASSPATH=$CLASSPATH:$DERBY_HOME/lib/derby.jar:$DERBY_HOME/lib/derbytools.jar

@@ -1,0 +1,8 @@
+1. Start-all.sh
+2. JPS
+3. hadoop fs -mkdir /inputforQ2
+4. hadoop fs -put *.txt /inputforQ2
+5. Creating Jar Files:- unzip the Assignment_2_Q_2.zip -> open in intellij -> Click on maven on right side tab -> click on Mvn install -> it will create the Jar file
+6. hadoop jar target/Assignment_2_Q_3-1.0-SNAPSHOT.jar com.abhay.Main /inputforQ2/ /outputofQ3
+7. hadoop fs -ls /outputofQ3
+8. hadoop fs -cat /outputforQ2/part-00000

@@ -1,0 +1,6 @@
+1. Start-all.sh
+2. JPS
+3. Creating Jar Files:- unzip the Assignment_2_Q_2.zip -> open in intellij -> Click on maven on right side tab -> click on Mvn install -> it will create the Jar file
+4. hadoop jar target/Assignment_2_Question_2-1.0-SNAPSHOT.jar com.abhay.Main /outputforQ2/ /outputforQ3
+5. hadoop fs -ls /outputofQ3
+6. hadoop fs -cat /outputforQ2/part-00000

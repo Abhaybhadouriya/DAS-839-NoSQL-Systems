@@ -1,0 +1,13 @@
+
+run  = start-dfs.sh
+run =  start-yarn.sh
+ create dir=  hadoop fs -mkdir /10000
+ copy all 10k files =  hadoop fs -put *.txt /10000/
+create dir for stopwords = hdfs dfs -mkdir -p /user/abhay/assignment2/stopword/
+copy stop word to directory =  hdfs dfs -put stopwords.txt /user/abhay/assignment2/stopword/stopwords.txt
+run for build -mvn clean package assembly:single
+
+run for 1 - time  hadoop jar target/assignment_2_Q5-1.0-SNAPSHOT-jar-with-dependencies.jar     com.abhay.DocumentFrequency /10000/ /outputforQ5P30
+
+run for 2 -  time hadoop jar target/assignment_2_Q5-1.0-SNAPSHOT-jar-with-dependencies.jar com.abhay.DocumentFrequencyTop100 /50/ /outputforQ5P2
+
