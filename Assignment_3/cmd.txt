@@ -1,0 +1,331 @@
+ 1862  hdfs dfs -mkdir -p /dataforA3
+ 1863  hdfs dfs -put /home/abhay/Downloads/Course_Attendance.csv /dataforA3
+ 1864  hdfs dfs -put /home/abhay/Downloads/GradeRosterReport.csv /dataforA3
+ 1865  hdfs dfs -put /home/abhay/Downloads/Enrollment_Data.csv /dataforA3
+ 1866  hdfs dfs -du -h /user/hive/warehouse/student_course_data
+ 1867  hdfs dfs -du -h /user/hive/warehouse/student_course_data_opt
+
+
+
+CREATE TABLE course_attendance (
+    Course STRING,
+    Instructor STRING,
+    Name STRING,
+    Email_Id STRING,
+    Member_Id STRING,
+    Classes_Attended INT,
+    Classes_Absent INT,
+    Avg_Attendance_Percent FLOAT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+-- Enrollment_Data Table
+CREATE TABLE enrollment_data (
+    Serial_No INT,
+    Course STRING,
+    Status STRING,
+    Course_Type STRING,
+    Course_Variant STRING,
+    Academia_LMS STRING,
+    Student_ID STRING,
+    Student_Name STRING,
+    Program STRING,
+    Batch STRING,
+    Period STRING,
+    Enrollment_Date STRING,
+    Primary_Faculty STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+-- GradeRosterReport Table
+CREATE TABLE grade_roster (
+    Academy_Location STRING,
+    Student_ID STRING,
+    Student_Status STRING,
+    Admission_ID STRING,
+    Admission_Status STRING,
+    Student_Name STRING,
+    Program_Code_Name STRING,
+    Batch STRING,
+    Period STRING,
+    Subject_Code_Name STRING,
+    Course_Type STRING,
+    Section STRING,
+    Faculty_Name STRING,
+    Course_Credit FLOAT,
+    Obtained_Marks_Grade STRING,
+    Out_of_Marks_Grade STRING,
+    Exam_Result STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+
+CREATE TABLE error_log (Source_Table STRING,     Row_ID STRING,     Column_Name STRING,     Error_Type STRING,     Error_Value STRING,     Timestampd STRING ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE;
+
+
+  hdfs dfs -put /home/abhay/Downloads/Course_Attendance.csv /dataforA3
+  hdfs dfs -put /home/abhay/Downloads/GradeRosterReport.csv /dataforA3
+  hdfs dfs -put /home/abhay/Downloads/Enrollment_Data.csv /dataforA3
+
+
+-- Load Course_Attendance
+LOAD DATA INPATH '/dataforA3/Course_Attendance.csv' INTO TABLE course_attendance;
+
+-- Load Enrollment_Data
+LOAD DATA INPATH '/dataforA3/Enrollment_Data.csv' INTO TABLE enrollment_data;
+
+-- Load GradeRosterReport
+LOAD DATA INPATH '/dataforA3/GradeRosterReport.csv' INTO TABLE grade_roster;
+
+
+question 2
+CREATE TABLE student_course_data (
+    Student_ID STRING,
+    Student_Name STRING,
+    Course STRING,
+    Program STRING,
+    Batch STRING,
+    Period STRING,
+    Faculty_Name STRING,
+    Course_Type STRING,
+    Classes_Attended INT,
+    Classes_Absent INT,
+    Avg_Attendance_Percent FLOAT,
+    Enrollment_Date STRING,
+    Course_Credit FLOAT,
+    Obtained_Marks_Grade STRING,
+    Exam_Result STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+-- Insert Data with Transformations and Error Logging
+INSERT INTO TABLE student_course_data
+SELECT
+    COALESCE(ca.Member_Id, ed.Student_ID, gr.Student_ID) AS Student_ID,
+    COALESCE(ca.Name, ed.Student_Name, gr.Student_Name) AS Student_Name,
+    COALESCE(ca.Course, ed.Course, gr.Subject_Code_Name) AS Course,
+    ed.Program AS Program,
+    COALESCE(ed.Batch, gr.Batch) AS Batch,
+    COALESCE(ed.Period, gr.Period) AS Period,
+    COALESCE(ca.Instructor, ed.Primary_Faculty, gr.Faculty_Name) AS Faculty_Name,
+    COALESCE(ed.Course_Type, gr.Course_Type) AS Course_Type,
+    ca.Classes_Attended AS Classes_Attended,
+    ca.Classes_Absent AS Classes_Absent,
+    ca.Avg_Attendance_Percent AS Avg_Attendance_Percent,
+    ed.Enrollment_Date AS Enrollment_Date,
+    gr.Course_Credit AS Course_Credit,
+    gr.Obtained_Marks_Grade AS Obtained_Marks_Grade,
+    gr.Exam_Result AS Exam_Result
+FROM course_attendance ca
+FULL OUTER JOIN enrollment_data ed ON ca.Member_Id = ed.Student_ID AND ca.Course = ed.Course
+FULL OUTER JOIN grade_roster gr ON ed.Student_ID = gr.Student_ID AND ed.Course = gr.Subject_Code_Name
+WHERE ca.Member_Id IS NOT NULL OR ed.Student_ID IS NOT NULL OR gr.Student_ID IS NOT NULL;
+
+-- Log Errors (e.g., missing Student_ID)
+INSERT INTO TABLE error_log
+SELECT
+    'course_attendance' AS Source_Table,
+    Member_Id AS Row_ID,
+    'Member_Id' AS Column_Name,
+    'Missing' AS Error_Type,
+    NULL AS Error_Value,
+    CURRENT_TIMESTAMP AS Timestampd
+FROM course_attendance WHERE Member_Id IS NULL
+UNION ALL
+SELECT
+    'enrollment_data' AS Source_Table,
+    Student_ID AS Row_ID,
+    'Student_ID' AS Column_Name,
+    'Missing' AS Error_Type,
+    NULL AS Error_Value,
+    CURRENT_TIMESTAMP AS Timestampd
+FROM enrollment_data WHERE Student_ID IS NULL
+UNION ALL
+SELECT
+    'grade_roster' AS Source_Table,
+    Student_ID AS Row_ID,
+    'Student_ID' AS Column_Name,
+    'Missing' AS Error_Type,
+    NULL AS Error_Value,
+    CURRENT_TIMESTAMP AS Timestampd
+FROM grade_roster WHERE Student_ID IS NULL;
+
+
+
+Query 1: Average Attendance by Program and Course
+SELECT 
+    Program, 
+    Course, 
+    AVG(Avg_Attendance_Percent) AS Avg_Attendance, 
+    COUNT(DISTINCT Student_ID) AS Student_Count    
+FROM student_course_data
+WHERE Avg_Attendance_Percent IS NOT NULL          
+GROUP BY Program, Course
+HAVING COUNT(DISTINCT Student_ID) > 5              
+ORDER BY Avg_Attendance DESC;
+
+Query 2: Faculty Performance with Course Credits
+
+    Purpose: Evaluate faculty effectiveness based on pass rates and course credits, joining with enrollment data.
+    Complexity: Involves a join with the original enrollment_data table, aggregation, and filtering.
+
+sql
+SELECT Faculty_Name, Course, 
+       SUM(CASE WHEN Exam_Result = 'Pass' THEN 1 ELSE 0 END) AS Pass_Count,
+       COUNT(*) AS Total_Students,
+       (SUM(CASE WHEN Exam_Result = 'Pass' THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS Pass_Rate
+FROM student_course_data
+WHERE Exam_Result IS NOT NULL
+GROUP BY Faculty_Name, Course
+ORDER BY Pass_Rate DESC;
+
+
+Query 3: Attendance vs. Exam Success by Course
+
+    Purpose: Explore the relationship between attendance and exam outcomes, using a self-join to compare students.
+    Complexity: Features a self-join, multiple aggregations, and layered filtering.
+
+sql
+
+{
+SELECT 
+    COALESCE(a.Course, 'Unknown') AS Course,
+    COALESCE(a.Student_ID, 'Unknown') AS Student_ID,
+    COALESCE(a.Faculty_Name, 'N/A') AS Faculty_Name,
+    COALESCE(b.Program, 'Not Provided') AS Program,
+    COALESCE(b.Batch, 'Unassigned') AS Batch
+FROM student_course_data a
+JOIN student_course_data b
+    ON a.Course = b.Course 
+    AND a.Student_ID = b.Student_ID 
+    AND a.Period = b.Period
+WHERE a.Course IS NOT NULL
+  AND a.Student_ID IS NOT NULL
+  AND b.Program IS NOT NULL
+
+LIMIT 10;
+
+}
+{
+#### error
+WARN  : Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez) or using Hive 1.X releases.
+
+}
+
+
+Problem 3: Partitioning and Bucketing
+Step 1: Optimized Table with Partitioning and Bucketing
+
+    Partition by Period (e.g., Semester).
+    Bucket by Student_ID for efficient querying.
+
+sql
+CREATE TABLE student_course_data_opt (
+    Student_ID STRING,
+    Student_Name STRING,
+    Course STRING,
+    Program STRING,
+    Batch STRING,
+    Faculty_Name STRING,
+    Course_Type STRING,
+    Classes_Attended INT,
+    Classes_Absent INT,
+    Avg_Attendance_Percent FLOAT,
+    Enrollment_Date STRING,
+    Course_Credit FLOAT,
+    Obtained_Marks_Grade STRING,
+    Exam_Result STRING
+)
+PARTITIONED BY (Period STRING)
+CLUSTERED BY (Student_ID) INTO 10 BUCKETS
+STORED AS ORC;
+// need to remove the null colomn 
+
+Steps to Resolve
+Step 1: Verify Data in student_course_data
+
+Run a query to check for NULL or problematic values in the Period column:
+sql
+SELECT Period, COUNT(*) AS count
+FROM student_course_data
+GROUP BY Period
+ORDER BY Period;
+
+    Look for:
+        Rows where Period is NULL.
+        Inconsistent formats (e.g., "Spring 2023" vs. "2023-Spring").
+        
+        
+Step 2: Clean the Data
+
+Create a temporary table excluding rows with NULL Period values:
+sql
+CREATE TABLE student_course_data_clean AS
+SELECT
+    Student_ID, Student_Name, Course, Program, Batch, Faculty_Name, Course_Type,
+    Classes_Attended, Classes_Absent, Avg_Attendance_Percent, Enrollment_Date,
+    Course_Credit, Obtained_Marks_Grade, Exam_Result, Period
+FROM student_course_data
+WHERE Period IS NOT NULL;
+
+Alternatively, log the problematic rows to error_log and proceed with valid data:
+sql
+INSERT INTO TABLE error_log
+SELECT
+    'student_course_data' AS Source_Table,
+    Student_ID AS Row_ID,
+    'Period' AS Column_Name,
+    'Missing' AS Error_Type,
+    NULL AS Error_Value,
+    CURRENT_TIMESTAMP AS Timestamp
+FROM student_course_data
+WHERE Period IS NULL;
+
+INSERT INTO TABLE student_course_data_clean
+SELECT
+    Student_ID, Student_Name, Course, Program, Batch, Faculty_Name, Course_Type,
+    Classes_Attended, Classes_Absent, Avg_Attendance_Percent, Enrollment_Date,
+    Course_Credit, Obtained_Marks_Grade, Exam_Result, Period
+FROM student_course_data
+WHERE Period IS NOT NULL;
+
+Step 3: Adjust Partitioning Settings
+
+Ensure dynamic partitioning is configured correctly:
+sql
+SET hive.exec.dynamic.partition=true;
+SET hive.exec.dynamic.partition.mode=nonstrict;
+SET hive.exec.max.dynamic.partitions=1000;
+SET hive.exec.max.dynamic.partitions.pernode=100;
+Step 4: Retry the Insert with Clean Data
+
+check if breucket created 
+Step 1: Check Table Metadata with DESCRIBE FORMATTED
+
+Use Hive’s DESCRIBE FORMATTED command to inspect the table’s definition, including partitioning and bucketing details:
+sql
+DESCRIBE FORMATTED student_course_data_opt;
+{
+Num Buckets:                  | 10                                                 | NULL                        |
+| Bucket Columns:               | [student_id]                                       | NULL                        |
+
+}
+Use the cleaned table for the insert:
+sql
+INSERT INTO TABLE student_course_data_opt PARTITION (Period)
+SELECT
+    Student_ID, Student_Name, Course, Program, Batch, Faculty_Name, Course_Type,
+    Classes_Attended, Classes_Absent, Avg_Attendance_Percent, Enrollment_Date,
+    Course_Credit, Obtained_Marks_Grade, Exam_Result, Period
+FROM student_course_data_clean;
+
+
+

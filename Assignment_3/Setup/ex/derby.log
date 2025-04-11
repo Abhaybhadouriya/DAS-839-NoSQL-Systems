@@ -1,259 +1,73 @@
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.replication.master in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.resultSetStatisticsFactory in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.NoneAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.lockManagerJ6 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.log.readonly in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.jdbcJ8 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.resourceAdapterJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.validation in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.lcf in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.optimizer in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.XPLAINFactory in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.javaCompiler in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.tcf in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.dataDictionary in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.cacheManagerJ6 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.ef in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.dvfJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.dvfJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.daemon in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.cacheManagerJ6 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.data.genericJ4 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.timerJ1 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.rawStore.data.genericJ4 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.data.genericJ1 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.basicAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.rawStore.data.genericJ1 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.JNDIAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.database in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.transaction in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.streams in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.dvfJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.mgmt.jmx in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.nativeAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.cryptographyJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access.sort in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.jdbcJ8 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.cryptographyJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.rawStore.data.genericJ4 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.jdbcJ8 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.lockManagerJ6 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.cryptographyJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.specificAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.mgmt.jmx in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.netServer.autoStart in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access.uniquewithduplicatenullssort in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.classManagerJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.JNDIAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.log in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access.heap in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.database.slave in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.resourceAdapterJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.mgmt.null in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.resourceAdapterJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.replication.slave in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.lf in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.uuidJ1 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access.btree in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
-Thu Apr 03 19:05:15 IST 2025 Thread[main,5,main]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.replication.master in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.resultSetStatisticsFactory in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.NoneAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.lockManagerJ6 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.log.readonly in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.jdbcJ8 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.resourceAdapterJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.validation in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.lcf in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.optimizer in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.XPLAINFactory in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.javaCompiler in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.tcf in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.dataDictionary in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.cacheManagerJ6 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.ef in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.dvfJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.dvfJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.daemon in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.cacheManagerJ6 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.data.genericJ4 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.timerJ1 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.rawStore.data.genericJ4 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.data.genericJ1 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.basicAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.rawStore.data.genericJ1 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.JNDIAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.database in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.transaction in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.streams in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.dvfJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.mgmt.jmx in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.nativeAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.cryptographyJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access.sort in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.jdbcJ8 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.cryptographyJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.rawStore.data.genericJ4 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.jdbcJ8 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.lockManagerJ6 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.cryptographyJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.specificAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.mgmt.jmx in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.netServer.autoStart in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access.uniquewithduplicatenullssort in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.classManagerJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.JNDIAuthentication in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore.log in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access.heap in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.database.slave in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.jdk.resourceAdapterJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.mgmt.null in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.env.classes.resourceAdapterJ2 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.replication.slave in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.lf in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.uuidJ1 in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.access.btree in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main] Ignored duplicate property derby.module.rawStore in jar:file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/hive-druid-handler-4.0.1.jar!/org/apache/derby/modules.properties
+Fri Apr 11 10:47:50 IST 2025 Thread[main,5,main]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 ----------------------------------------------------------------
-Thu Apr 03 19:05:15 IST 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0195-fbdc-ee77-0000093268f8 
-on database directory /home/abhay/Desktop/NoSQL/Assignment_3/Setup/ex/metastore_db with class loader sun.misc.Launcher$AppClassLoader@7f560810 
+Fri Apr 11 10:47:50 IST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0196-2348-6904-000008f3d7a0 
+on database directory /home/abhay/Desktop/Semester 2/NoSQL/Assignment_3/Setup/ex/metastore_db with class loader sun.misc.Launcher$AppClassLoader@7f560810 
 Loaded from file:/home/abhay/Desktop/NoSQL/Assignment_3/Setup/apache-hive-4.0.1-bin/lib/derby-10.14.2.0.jar
 java.vendor=Private Build
 java.runtime.version=1.8.0_442-8u442-b06~us1-0ubuntu1~24.04-b06
-user.dir=/home/abhay/Desktop/NoSQL/Assignment_3/Setup/ex
+user.dir=/home/abhay/Desktop/Semester 2/NoSQL/Assignment_3/Setup/ex
 os.name=Linux
 os.arch=amd64
 os.version=6.11.0-21-generic
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-Thu Apr 03 19:36:37 IST 2025 Thread[HiveServer2-Background-Pool: Thread-809,5,main] (XID = 2208), (SESSIONID = 25), (DATABASE = metastore_db), (DRDAID = null), Cleanup action starting
-Thu Apr 03 19:36:37 IST 2025 Thread[HiveServer2-Background-Pool: Thread-809,5,main] (XID = 2208), (SESSIONID = 25), (DATABASE = metastore_db), (DRDAID = null), Failed Statement is: select "PART_ID", "PARAM_KEY", "PARAM_VALUE" from "PARTITION_PARAMS" where "PART_ID" in () and "PARAM_KEY" is not null order by "PART_ID" asc
-ERROR 42X01: Syntax error: Encountered ")" at line 1, column 90.
-	at org.apache.derby.iapi.error.StandardException.newException(StandardException.java:290)
-	at org.apache.derby.iapi.error.StandardException.newException(StandardException.java:285)
-	at org.apache.derby.impl.sql.compile.ParserImpl.parseStatementOrSearchCondition(ParserImpl.java:175)
-	at org.apache.derby.impl.sql.compile.ParserImpl.parseStatement(ParserImpl.java:130)
-	at org.apache.derby.impl.sql.GenericStatement.prepMinion(GenericStatement.java:359)
-	at org.apache.derby.impl.sql.GenericStatement.prepare(GenericStatement.java:99)
-	at org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext.prepareInternalStatement(GenericLanguageConnectionContext.java:1114)
-	at org.apache.derby.impl.jdbc.EmbedPreparedStatement.<init>(EmbedPreparedStatement.java:134)
-	at org.apache.derby.impl.jdbc.EmbedPreparedStatement42.<init>(EmbedPreparedStatement42.java:41)
-	at org.apache.derby.jdbc.Driver42.newEmbedPreparedStatement(Driver42.java:59)
-	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1740)
-	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1593)
-	at org.apache.hive.com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:351)
-	at org.apache.hive.com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at org.datanucleus.store.rdbms.SQLController.getStatementForQuery(SQLController.java:349)
-	at org.datanucleus.store.rdbms.query.RDBMSQueryUtils.getPreparedStatementForQuery(RDBMSQueryUtils.java:224)
-	at org.datanucleus.store.rdbms.query.SQLQuery.performExecute(SQLQuery.java:652)
-	at org.datanucleus.store.query.Query.executeQuery(Query.java:1975)
-	at org.datanucleus.store.rdbms.query.SQLQuery.executeWithArray(SQLQuery.java:818)
-	at org.datanucleus.store.query.Query.execute(Query.java:1846)
-	at org.datanucleus.api.jdo.JDOQuery.executeInternal(JDOQuery.java:439)
-	at org.datanucleus.api.jdo.JDOQuery.execute(JDOQuery.java:263)
-	at org.apache.hadoop.hive.metastore.MetastoreDirectSqlUtils.loopJoinOrderedResult(MetastoreDirectSqlUtils.java:131)
-	at org.apache.hadoop.hive.metastore.MetastoreDirectSqlUtils.setPartitionParametersWithFilter(MetastoreDirectSqlUtils.java:191)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.getPartitionsByQuery(MetaStoreDirectSql.java:1212)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.getPartitionsByNames(MetaStoreDirectSql.java:1053)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.access$800(MetaStoreDirectSql.java:134)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql$2.run(MetaStoreDirectSql.java:743)
-	at org.apache.hadoop.hive.metastore.Batchable.runBatched(Batchable.java:79)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.getPartitionsViaPartNames(MetaStoreDirectSql.java:740)
-	at org.apache.hadoop.hive.metastore.ObjectStore$15.getSqlResult(ObjectStore.java:4124)
-	at org.apache.hadoop.hive.metastore.ObjectStore$15.getSqlResult(ObjectStore.java:4121)
-	at org.apache.hadoop.hive.metastore.ObjectStore$GetHelper.run(ObjectStore.java:4490)
-	at org.apache.hadoop.hive.metastore.ObjectStore.getPartitionsByNamesInternal(ObjectStore.java:4131)
-	at org.apache.hadoop.hive.metastore.ObjectStore.getPartitionsByNames(ObjectStore.java:4115)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.hadoop.hive.metastore.RawStoreProxy.invoke(RawStoreProxy.java:97)
-	at com.sun.proxy.$Proxy34.getPartitionsByNames(Unknown Source)
-	at org.apache.hadoop.hive.metastore.HMSHandler.get_partitions_by_names(HMSHandler.java:7774)
-	at org.apache.hadoop.hive.metastore.HMSHandler.get_partitions_by_names_req(HMSHandler.java:7741)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.hadoop.hive.metastore.RetryingHMSHandler.invokeInternal(RetryingHMSHandler.java:91)
-	at org.apache.hadoop.hive.metastore.AbstractHMSHandlerProxy.invoke(AbstractHMSHandlerProxy.java:82)
-	at com.sun.proxy.$Proxy36.get_partitions_by_names_req(Unknown Source)
-	at org.apache.hadoop.hive.metastore.HiveMetaStoreClient.getPartitionsByNamesInternal(HiveMetaStoreClient.java:2751)
-	at org.apache.hadoop.hive.ql.metadata.HiveMetaStoreClientWithLocalCache.getPartitionsByNamesInternal(HiveMetaStoreClientWithLocalCache.java:498)
-	at org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient.getPartitionsByNamesInternal(SessionHiveMetaStoreClient.java:2456)
-	at org.apache.hadoop.hive.metastore.HiveMetaStoreClient.getPartitionsByNames(HiveMetaStoreClient.java:2742)
-	at org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient.getPartitionsByNames(SessionHiveMetaStoreClient.java:1374)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.invoke(RetryingMetaStoreClient.java:213)
-	at com.sun.proxy.$Proxy37.getPartitionsByNames(Unknown Source)
-	at org.apache.hadoop.hive.ql.metadata.Hive.getPartitionsByNames(Hive.java:4376)
-	at org.apache.hadoop.hive.ql.metadata.Hive.getPartitionsByNames(Hive.java:4320)
-	at org.apache.hadoop.hive.ql.metadata.Hive.loadDynamicPartitions(Hive.java:3202)
-	at org.apache.hadoop.hive.ql.exec.MoveTask.handleDynParts(MoveTask.java:697)
-	at org.apache.hadoop.hive.ql.exec.MoveTask.execute(MoveTask.java:545)
-	at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:214)
-	at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:105)
-	at org.apache.hadoop.hive.ql.Executor.launchTask(Executor.java:354)
-	at org.apache.hadoop.hive.ql.Executor.launchTasks(Executor.java:327)
-	at org.apache.hadoop.hive.ql.Executor.runTasks(Executor.java:244)
-	at org.apache.hadoop.hive.ql.Executor.execute(Executor.java:105)
-	at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:367)
-	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:205)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:154)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:149)
-	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:185)
-	at org.apache.hive.service.cli.operation.SQLOperation.runQuery(SQLOperation.java:236)
-	at org.apache.hive.service.cli.operation.SQLOperation.access$500(SQLOperation.java:90)
-	at org.apache.hive.service.cli.operation.SQLOperation$BackgroundWork$1.run(SQLOperation.java:336)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:422)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
-	at org.apache.hive.service.cli.operation.SQLOperation$BackgroundWork.run(SQLOperation.java:356)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-Cleanup action completed
-Thu Apr 03 19:48:01 IST 2025 Thread[HiveServer2-Background-Pool: Thread-1371,5,main] (XID = 2622), (SESSIONID = 25), (DATABASE = metastore_db), (DRDAID = null), Cleanup action starting
-Thu Apr 03 19:48:01 IST 2025 Thread[HiveServer2-Background-Pool: Thread-1371,5,main] (XID = 2622), (SESSIONID = 25), (DATABASE = metastore_db), (DRDAID = null), Failed Statement is: select "PART_ID", "PARAM_KEY", "PARAM_VALUE" from "PARTITION_PARAMS" where "PART_ID" in () and "PARAM_KEY" is not null order by "PART_ID" asc
-ERROR 42X01: Syntax error: Encountered ")" at line 1, column 90.
-	at org.apache.derby.iapi.error.StandardException.newException(StandardException.java:290)
-	at org.apache.derby.iapi.error.StandardException.newException(StandardException.java:285)
-	at org.apache.derby.impl.sql.compile.ParserImpl.parseStatementOrSearchCondition(ParserImpl.java:175)
-	at org.apache.derby.impl.sql.compile.ParserImpl.parseStatement(ParserImpl.java:130)
-	at org.apache.derby.impl.sql.GenericStatement.prepMinion(GenericStatement.java:359)
-	at org.apache.derby.impl.sql.GenericStatement.prepare(GenericStatement.java:99)
-	at org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext.prepareInternalStatement(GenericLanguageConnectionContext.java:1114)
-	at org.apache.derby.impl.jdbc.EmbedPreparedStatement.<init>(EmbedPreparedStatement.java:134)
-	at org.apache.derby.impl.jdbc.EmbedPreparedStatement42.<init>(EmbedPreparedStatement42.java:41)
-	at org.apache.derby.jdbc.Driver42.newEmbedPreparedStatement(Driver42.java:59)
-	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1740)
-	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1593)
-	at org.apache.hive.com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:351)
-	at org.apache.hive.com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at org.datanucleus.store.rdbms.SQLController.getStatementForQuery(SQLController.java:349)
-	at org.datanucleus.store.rdbms.query.RDBMSQueryUtils.getPreparedStatementForQuery(RDBMSQueryUtils.java:224)
-	at org.datanucleus.store.rdbms.query.SQLQuery.performExecute(SQLQuery.java:652)
-	at org.datanucleus.store.query.Query.executeQuery(Query.java:1975)
-	at org.datanucleus.store.rdbms.query.SQLQuery.executeWithArray(SQLQuery.java:818)
-	at org.datanucleus.store.query.Query.execute(Query.java:1846)
-	at org.datanucleus.api.jdo.JDOQuery.executeInternal(JDOQuery.java:439)
-	at org.datanucleus.api.jdo.JDOQuery.execute(JDOQuery.java:263)
-	at org.apache.hadoop.hive.metastore.MetastoreDirectSqlUtils.loopJoinOrderedResult(MetastoreDirectSqlUtils.java:131)
-	at org.apache.hadoop.hive.metastore.MetastoreDirectSqlUtils.setPartitionParametersWithFilter(MetastoreDirectSqlUtils.java:191)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.getPartitionsByQuery(MetaStoreDirectSql.java:1212)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.getPartitionsByNames(MetaStoreDirectSql.java:1053)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.access$800(MetaStoreDirectSql.java:134)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql$2.run(MetaStoreDirectSql.java:743)
-	at org.apache.hadoop.hive.metastore.Batchable.runBatched(Batchable.java:79)
-	at org.apache.hadoop.hive.metastore.MetaStoreDirectSql.getPartitionsViaPartNames(MetaStoreDirectSql.java:740)
-	at org.apache.hadoop.hive.metastore.ObjectStore$15.getSqlResult(ObjectStore.java:4124)
-	at org.apache.hadoop.hive.metastore.ObjectStore$15.getSqlResult(ObjectStore.java:4121)
-	at org.apache.hadoop.hive.metastore.ObjectStore$GetHelper.run(ObjectStore.java:4490)
-	at org.apache.hadoop.hive.metastore.ObjectStore.getPartitionsByNamesInternal(ObjectStore.java:4131)
-	at org.apache.hadoop.hive.metastore.ObjectStore.getPartitionsByNames(ObjectStore.java:4115)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.hadoop.hive.metastore.RawStoreProxy.invoke(RawStoreProxy.java:97)
-	at com.sun.proxy.$Proxy34.getPartitionsByNames(Unknown Source)
-	at org.apache.hadoop.hive.metastore.HMSHandler.get_partitions_by_names(HMSHandler.java:7774)
-	at org.apache.hadoop.hive.metastore.HMSHandler.get_partitions_by_names_req(HMSHandler.java:7741)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.hadoop.hive.metastore.RetryingHMSHandler.invokeInternal(RetryingHMSHandler.java:91)
-	at org.apache.hadoop.hive.metastore.AbstractHMSHandlerProxy.invoke(AbstractHMSHandlerProxy.java:82)
-	at com.sun.proxy.$Proxy36.get_partitions_by_names_req(Unknown Source)
-	at org.apache.hadoop.hive.metastore.HiveMetaStoreClient.getPartitionsByNamesInternal(HiveMetaStoreClient.java:2751)
-	at org.apache.hadoop.hive.ql.metadata.HiveMetaStoreClientWithLocalCache.getPartitionsByNamesInternal(HiveMetaStoreClientWithLocalCache.java:498)
-	at org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient.getPartitionsByNamesInternal(SessionHiveMetaStoreClient.java:2456)
-	at org.apache.hadoop.hive.metastore.HiveMetaStoreClient.getPartitionsByNames(HiveMetaStoreClient.java:2742)
-	at org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient.getPartitionsByNames(SessionHiveMetaStoreClient.java:1374)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.invoke(RetryingMetaStoreClient.java:213)
-	at com.sun.proxy.$Proxy37.getPartitionsByNames(Unknown Source)
-	at org.apache.hadoop.hive.ql.metadata.Hive.getPartitionsByNames(Hive.java:4376)
-	at org.apache.hadoop.hive.ql.metadata.Hive.getPartitionsByNames(Hive.java:4320)
-	at org.apache.hadoop.hive.ql.metadata.Hive.loadDynamicPartitions(Hive.java:3202)
-	at org.apache.hadoop.hive.ql.exec.MoveTask.handleDynParts(MoveTask.java:697)
-	at org.apache.hadoop.hive.ql.exec.MoveTask.execute(MoveTask.java:545)
-	at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:214)
-	at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:105)
-	at org.apache.hadoop.hive.ql.Executor.launchTask(Executor.java:354)
-	at org.apache.hadoop.hive.ql.Executor.launchTasks(Executor.java:327)
-	at org.apache.hadoop.hive.ql.Executor.runTasks(Executor.java:244)
-	at org.apache.hadoop.hive.ql.Executor.execute(Executor.java:105)
-	at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:367)
-	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:205)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:154)
-	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:149)
-	at org.apache.hadoop.hive.ql.reexec.ReExecDriver.run(ReExecDriver.java:185)
-	at org.apache.hive.service.cli.operation.SQLOperation.runQuery(SQLOperation.java:236)
-	at org.apache.hive.service.cli.operation.SQLOperation.access$500(SQLOperation.java:90)
-	at org.apache.hive.service.cli.operation.SQLOperation$BackgroundWork$1.run(SQLOperation.java:336)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:422)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
-	at org.apache.hive.service.cli.operation.SQLOperation$BackgroundWork.run(SQLOperation.java:356)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-Cleanup action completed
