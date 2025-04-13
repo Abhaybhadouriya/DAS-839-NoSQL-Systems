@@ -51,4 +51,5 @@ filtered_result1 = FILTER result1 BY Student_Count > 0;
 ordered_result1 = ORDER filtered_result1 BY Avg_Attendance DESC;
 
 -- Output the result
-DUMP ordered_result1;
+-- DUMP ordered_result1;
+STORE ordered_result1 INTO '/home/abhay/Desktop/Semester_2/NoSQL/Assignment_3/Pig_Script/attendance_output' USING PigStorage(',');
