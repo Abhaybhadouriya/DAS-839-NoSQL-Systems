@@ -2,6 +2,7 @@ from pyhive import hive
 from src.oplog.oplog_manager import OpLogManager
 from src.config import HIVE_CONFIG, OPLOG_PATHS
 import time
+from datetime import datetime
 
 class HiveSystem:
     def __init__(self):

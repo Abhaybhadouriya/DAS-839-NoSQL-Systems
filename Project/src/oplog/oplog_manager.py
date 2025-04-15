@@ -25,20 +25,9 @@ class OpLogManager:
                     parts = line.strip().split(", ")
                     op_id = int(parts[0])
                     op_type = parts[1].split(" ")[0]
-                    data = parts[1][parts[1].find("(")+1:parts[1].find(")")]
-                    if "," in data and " " in data:
-                        key_part, rest = data.rsplit(", ", 1)
-                        admission_number, subject, period = key_part.split(",")
-                        if rest:
-                            if ", " in rest:
-                                grade, timestamp = rest.rsplit(", ", 1)
-                            else:
-                                grade, timestamp = rest, None
-                        else:
-                            grade, timestamp = None, None
-                    else:
-                        admission_number, subject, period = data.split(",")
-                        grade, timestamp = None, None
+                    admission_number, subject, period= map(str.strip, parts[1][parts[1].find("(")+1:parts[1].find(")")].split(","))
+                    grade = parts[2].strip() if len(parts) > 2 else None
+                    timestamp = parts[3].strip() if len(parts) > 3 else None 
                     operations.append({
                         "op_id": op_id,
                         "operation": op_type,

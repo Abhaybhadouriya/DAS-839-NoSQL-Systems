@@ -8,7 +8,7 @@ load_dotenv()  # Load .env file
 def main():
     systems = {
         "MONGO": MongoDBSystem(),
-        "HIVE": HiveSystem(),
+        # "HIVE": HiveSystem(),
         "SQL": MySQLSystem()
     }
 
@@ -21,11 +21,11 @@ def main():
             continue
 
         if cmd.startswith("MERGE"):
-            _, systems_str = cmd.split(" ")
-            system1, system2 = systems_str.strip("()").split(",")
-            system1 = system1.strip()
-            system2 = system2.strip()
+            systems_str = cmd[cmd.find("(") + 1 : cmd.find(")")]
+            system1, system2 = map(str.strip, systems_str.split(","))
             print(f"Executing MERGE({system1}, {system2})")
+            if 'HIVE' in (system1, system2):
+                continue
             if system1 in systems:
                 systems[system1].merge(system2)
             else:
@@ -34,14 +34,16 @@ def main():
             system_name, operation = cmd.split(".", 1)
             system_name = system_name.strip()
             operation = operation.strip()
-            op_type = operation[:operation.find(" ")].strip()
+            
+            # print(operation.split("(")[0])
+
+            op_type = operation.split("(")[0]
             data = operation[operation.find("(")+1:operation.find(")")]
             parts = data.split(", ")
             admission_number = parts[0]
             subject = parts[1]
             period = parts[2]
             grade = parts[3] if len(parts) > 3 else None
-
             if system_name not in systems:
                 print(f"Invalid system: {system_name}")
                 continue

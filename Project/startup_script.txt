@@ -1,0 +1,17 @@
+mongodb
+sudo systemctl start mongod
+mongosh
+show dbs
+use grade_db
+show collections
+## mongodb_GUI
+mongodb-compass
+
+
+mysql
+sudo systemctl start mysql
+
+
+python
+source venv/bin/activate
+python3 -m src.main

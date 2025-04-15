@@ -1,8 +1,9 @@
 from pymongo import MongoClient
-from pymongo.errors import ConnectionError
+from pymongo.errors import ConnectionFailure
 from src.oplog.oplog_manager import OpLogManager
 from src.config import MONGO_CONFIG, OPLOG_PATHS
 import time
+from datetime import datetime
 
 class MongoDBSystem:
     def __init__(self):

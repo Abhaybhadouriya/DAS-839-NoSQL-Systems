@@ -2,6 +2,7 @@ import mysql.connector
 from src.oplog.oplog_manager import OpLogManager
 from src.config import MYSQL_CONFIG, OPLOG_PATHS
 import time
+from datetime import datetime
 
 class MySQLSystem:
     def __init__(self):
@@ -31,7 +32,7 @@ class MySQLSystem:
                     subject VARCHAR(255),
                     period VARCHAR(255),
                     grade VARCHAR(10),
-                    timestamp VARCHAR(26),
+                    timestamp VARCHAR(32),
                     PRIMARY KEY (admission_number, subject, period)
                 )
             """)
