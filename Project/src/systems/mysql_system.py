@@ -96,6 +96,7 @@ class MySQLSystem:
         operations = other_oplog.read_log()
 
         for op in operations:
+            print(op)
             if op["operation"] in ["INSERT", "UPDATE"] and op["grade"]:
                 with self.conn.cursor() as cursor:
                     cursor.execute(f"""
@@ -103,7 +104,9 @@ class MySQLSystem:
                         WHERE admission_number = %s AND subject = %s AND period = %s
                     """, (op["admission_number"], op["subject"], op["period"]))
                     existing_timestamp = cursor.fetchone()
-                    if not existing_timestamp or (existing_timestamp and existing_timestamp[0] < op["timestamp"]):
+                    
+                    # Compare only if both timestamps are valid
+                    if not existing_timestamp or (existing_timestamp[0] and existing_timestamp[0] < op["timestamp"]):
                         cursor.execute(f"""
                             INSERT INTO {self.table} (admission_number, subject, period, grade, timestamp)
                             VALUES (%s, %s, %s, %s, %s)
@@ -112,6 +115,7 @@ class MySQLSystem:
                 self.conn.commit()
                 self.oplog.log_operation(self.op_id, op["operation"], (op["admission_number"], op["subject"], op["period"]), op["grade"], op["timestamp"])
                 self.op_id += 1
+
             elif op["operation"] == "DELETE":
                 with self.conn.cursor() as cursor:
                     cursor.execute(f"""
@@ -119,7 +123,8 @@ class MySQLSystem:
                         WHERE admission_number = %s AND subject = %s AND period = %s
                     """, (op["admission_number"], op["subject"], op["period"]))
                     existing_timestamp = cursor.fetchone()
-                    if not existing_timestamp or (existing_timestamp and existing_timestamp[0] <= op["timestamp"]):
+                   
+                    if not existing_timestamp or (existing_timestamp[0] and existing_timestamp[0] < op["timestamp"]):
                         cursor.execute(f"""
                             DELETE FROM {self.table} 
                             WHERE admission_number = %s AND subject = %s AND period = %s

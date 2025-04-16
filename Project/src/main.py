@@ -27,9 +27,9 @@ def main():
             system2= system2.strip().upper()
             
 
-            if 'HIVE' in (system1, system2):
-                continue
+          
             if system1 in systems and system2 in systems:
+                print(f"MERGING {system1} and {system2}")
                 systems[system1].merge(system2)
             else:
                 if system1 not in systems:

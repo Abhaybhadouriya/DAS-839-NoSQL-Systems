@@ -12,7 +12,7 @@ class OpLogManager:
         timestamp = timestamp or datetime.now().isoformat()
         with open(self.log_file, 'a') as f:
             if operation == "READ" or operation == "DELETE":
-                f.write(f"{op_id}, {operation} ({key_str}, {timestamp})\n")
+                f.write(f"{op_id}, {operation} ({key_str}, {grade}, {timestamp})\n")
             elif operation in ["INSERT", "UPDATE"]:
                 f.write(f"{op_id}, {operation} ({key_str}, {grade}, {timestamp})\n")
 

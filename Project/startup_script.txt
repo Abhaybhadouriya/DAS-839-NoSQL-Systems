@@ -14,7 +14,7 @@ sudo systemctl start mysql
 hive server
 start-yarn.sh
 start-dfs.sh
-hive --service metastore
+hive --service metastore // in metastore dir
 hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10000
 
 python
