@@ -77,6 +77,7 @@ class MongoDBSystem:
         operations = other_oplog.read_log()
 
         for op in operations:
+            print(op)
             if op["operation"] in ["INSERT", "UPDATE"] and op["grade"]:
                 existing = self.collection.find_one({
                     "admission_number": op["admission_number"],

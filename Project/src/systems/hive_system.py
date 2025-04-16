@@ -200,52 +200,177 @@ class HiveSystem:
         operations = other_oplog.read_log()
 
         for op in operations:
+            print(op["operation"])
             try:
-                if op["operation"] in ["INSERT", "UPDATE"] and op["grade"]:
-                    with self.conn.cursor() as cursor:
-                        # Get existing timestamp as string
-                        cursor.execute(f"""
-                            SELECT timestampD FROM {self.table} 
-                            WHERE admission_number = '{op["admission_number"]}' 
-                            AND subject = '{op["subject"]}' 
-                            AND period = '{op["period"]}'
-                        """)
-                        result = cursor.fetchone()
-                        existing_timestamp = result[0] if result else None
-                        
-                        # Compare timestamps properly
-                        if (existing_timestamp is None) or (existing_timestamp and op["timestamp"] > existing_timestamp):
-                            self.update(op["admission_number"], op["subject"], op["period"], op["grade"])
+                ''' if op["operation"] == "INSERT" and op["grade"]:
+                    timestamp = datetime.now().isoformat()
+                    temp_file = self._create_temp_data_file(op["grade"], timestamp)
                     
-                    self.oplog.log_operation(
-                        self.op_id, op["operation"],
-                        (op["admission_number"], op["subject"], op["period"]),
-                        op["grade"], op["timestamp"]
-                    )
-                    self.op_id += 1
+                    try:
+                        with self.conn.cursor() as cursor:
+                            # Check if record exists
+                            cursor.execute(f"""
+                                SELECT 1 FROM {self.table}
+                                WHERE admission_number = '{op["admission_number"]}'
+                                AND subject = '{op["subject"]}'
+                                AND period = '{op["period"]}'
+                                LIMIT 1
+                            """)
+                            if not cursor.fetchone():
+                                # Create partition if not exists
+                                cursor.execute(f"""
+                                    ALTER TABLE {self.table} ADD IF NOT EXISTS
+                                    PARTITION (admission_number='{op["admission_number"]}', 
+                                            subject='{op["subject"]}', 
+                                            period='{op["period"]}')
+                                """)
+                                # Load data directly - no need to set delimiter here
+                                cursor.execute(f"""
+                                    LOAD DATA LOCAL INPATH '{temp_file}'
+                                    INTO TABLE {self.table}
+                                    PARTITION (admission_number='{op["admission_number"]}',
+                                            subject='{op["subject"]}',
+                                            period='{op["period"]}')
+                                """)
+                        self.conn.commit()
+                        self.oplog.log_operation(
+                            self.op_id, "INSERT", 
+                            (op["admission_number"], op["subject"], op["period"]), 
+                            op["grade"], timestamp
+                        )
+                        self.op_id += 1
+                    finally:
+                        if os.path.exists(temp_file):
+                            os.remove(temp_file)    
+                elif op["operation"] == "UPDATE" and op["grade"]:
+                            timestamp = datetime.now().isoformat()
+                            temp_file = self._create_temp_data_file(grade, timestamp)
+                            
+                            try:
+                                with self.conn.cursor() as cursor:
+                                    # First delete the existing partition
+                                    cursor.execute(f"""
+                                        ALTER TABLE {self.table} DROP IF EXISTS
+                                        PARTITION (
+                                            admission_number='{op["admission_number"]}',
+                                            subject='{op["subject"]}',
+                                            period='{op["period"]}'
+                                        )
+                                    """)
+                                    # Then add new partition with updated data
+                                    cursor.execute(f"""
+                                        ALTER TABLE {self.table} ADD
+                                        PARTITION (
+                                            admission_number='{op["admission_number"]}',
+                                            subject='{op["subject"]}',
+                                            period='{op["period"]}'
+                                        )
+                                    """)
+                                    cursor.execute(f"""
+                                        LOAD DATA LOCAL INPATH '{temp_file}'
+                                        INTO TABLE {self.table}
+                                        PARTITION (
+                                            admission_number='{op["admission_number"]}',
+                                            subject='{op["subject"]}',
+                                            period='{op["period"]}'
+                                        )
+                                    """)
+                                self.conn.commit()
+                                self.oplog.log_operation(
+                                    self.op_id, "UPDATE",
+                                    (admission_number, subject, period),
+                                    grade, timestamp
+                                )
+                                self.op_id += 1
+                            finally:
+                                if os.path.exists(temp_file):
+                                    os.remove(temp_file)
+                '''
+                if op["operation"] in ["INSERT", "UPDATE"] and op["grade"]:
+                    try:
+                        with self.conn.cursor() as cursor:
+                            # Get both timestamp and existence info
+                            cursor.execute(f"""
+                                SELECT   *
+                                FROM {self.table} 
+                                WHERE admission_number = '{op["admission_number"]}' 
+                                AND subject = '{op["subject"]}' 
+                                AND period = '{op["period"]}'
+                                LIMIT 1
+                            """)
+                            result = cursor.fetchone()
+                            should_update = False
+                            should_insert = False
+                            if result:
+                                grade, existing_timestamp, admission_num, subject, period = result 
+                                exists_flag = 1
+                                if exists_flag > 0:  # Record exists
+                                    if existing_timestamp is None or op["timestamp"] > existing_timestamp or op['grade'] != grade:
+                                        should_update = True
+                                else:  # New record
+                                    should_update = True
+                            else:  # No record exists
+                                should_insert = True
+                                
+                            if should_update:
+                                print(f"Processing {op['operation']} for {op['admission_number']}")
+                                self.update(op["admission_number"], op["subject"], op["period"], op["grade"])
+                            elif should_insert:
+                                print(f"Processing {op['operation']} for {op['admission_number']}")
+                                self.insert(op["admission_number"], op["subject"], op["period"], op["grade"])
+                            else:
+                                print(f"Skipping {op['operation']} - newer timestamp exists")
+                                
+                        self.oplog.log_operation(
+                            self.op_id, op["operation"],
+                            (op["admission_number"], op["subject"], op["period"]),
+                            op["grade"], op["timestamp"]
+                        )
+                        self.op_id += 1
+                        
+                    except Exception as e:
+                        print(f"Error processing {op['operation']} merge operation: {str(e)}")
+                        continue
                     
                 elif op["operation"] == "DELETE":
-                    with self.conn.cursor() as cursor:
-                        # Get existing timestamp as string
-                        cursor.execute(f"""
-                            SELECT timestampD FROM {self.table} 
-                            WHERE admission_number = '{op["admission_number"]}' 
-                            AND subject = '{op["subject"]}' 
-                            AND period = '{op["period"]}'
-                        """)
-                        result = cursor.fetchone()
-                        existing_timestamp = result[0] if result else None
+                    try:
+                        with self.conn.cursor() as cursor:
+                            # Get both timestamp and existence info
+                            cursor.execute(f"""
+                                SHOW PARTITIONS {self.table} 
+                                PARTITION(
+                                    admission_number='{op["admission_number"]}', 
+                                    subject='{op["subject"]}', 
+                                    period='{op["period"]}'
+                                )
+                            """)
+                            partition_exists = cursor.fetchone() is not None
+                            
+                            if partition_exists:
+                                # Drop the partition
+                                cursor.execute(f"""
+                                    ALTER TABLE {self.table} DROP IF EXISTS
+                                    PARTITION (
+                                        admission_number='{op["admission_number"]}',
+                                        subject='{op["subject"]}',
+                                        period='{op["period"]}'
+                                    )
+                                """)
+                                self.conn.commit()
+                                print(f"Successfully deleted partition: {op["admission_number"]}/{op["subject"]}/{op["period"]}")
+                            else:
+                                print(f"Partition not found: {op["admission_number"]}/{op["subject"]}/{op["period"]}")
+           
+                        self.oplog.log_operation(
+                            self.op_id, "DELETE",
+                            (op["admission_number"], op["subject"], op["period"]),
+                            timestamp=op["timestamp"]
+                        )
+                        self.op_id += 1
                         
-                        # Compare timestamps properly
-                        if (existing_timestamp is None) or (existing_timestamp and op["timestamp"] >= existing_timestamp):
-                            self.delete(op["admission_number"], op["subject"], op["period"])
-                    
-                    self.oplog.log_operation(
-                        self.op_id, "DELETE",
-                        (op["admission_number"], op["subject"], op["period"]),
-                        timestamp=op["timestamp"]
-                    )
-                    self.op_id += 1
+                    except Exception as e:
+                        print(f"Error processing DELETE merge operation: {str(e)}")
+                        continue
                     
             except Exception as e:
                 print(f"Error processing operation {op}: {str(e)}")
