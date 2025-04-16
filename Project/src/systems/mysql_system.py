@@ -113,7 +113,7 @@ class MySQLSystem:
                             ON DUPLICATE KEY UPDATE grade = %s, timestamp = %s
                         """, (op["admission_number"], op["subject"], op["period"], op["grade"], op["timestamp"], op["grade"], op["timestamp"]))
                 self.conn.commit()
-                self.oplog.log_operation(self.op_id, op["operation"], (op["admission_number"], op["subject"], op["period"]), op["grade"], op["timestamp"])
+                self.oplog.log_operation(self.op_id, op["operation"], (op["admission_number"], op["subject"], op["period"]), op["grade"], timestamp=datetime.now().isoformat())
                 self.op_id += 1
 
             elif op["operation"] == "DELETE":
@@ -129,6 +129,8 @@ class MySQLSystem:
                             DELETE FROM {self.table} 
                             WHERE admission_number = %s AND subject = %s AND period = %s
                         """, (op["admission_number"], op["subject"], op["period"]))
+                    else:
+                        print(f"Skipping DELETE operation for {op['admission_number']}, {op['timestamp']}, {existing_timestamp[0]} due to older timestamp.")
                 self.conn.commit()
-                self.oplog.log_operation(self.op_id, "DELETE", (op["admission_number"], op["subject"], op["period"]), timestamp=op["timestamp"])
+                self.oplog.log_operation(self.op_id, "DELETE", (op["admission_number"], op["subject"], op["period"]), timestamp=datetime.now().isoformat())
                 self.op_id += 1

@@ -324,7 +324,7 @@ class HiveSystem:
                         self.oplog.log_operation(
                             self.op_id, op["operation"],
                             (op["admission_number"], op["subject"], op["period"]),
-                            op["grade"], op["timestamp"]
+                            op["grade"], timestamp=datetime.now().isoformat()
                         )
                         self.op_id += 1
                         
@@ -364,7 +364,7 @@ class HiveSystem:
                         self.oplog.log_operation(
                             self.op_id, "DELETE",
                             (op["admission_number"], op["subject"], op["period"]),
-                            timestamp=op["timestamp"]
+                            timestamp=datetime.now().isoformat()
                         )
                         self.op_id += 1
                         

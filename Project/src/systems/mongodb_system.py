@@ -94,7 +94,7 @@ class MongoDBSystem:
                         {"$set": {"grade": op["grade"], "timestamp": op["timestamp"]}},
                         upsert=True
                     )
-                    self.oplog.log_operation(self.op_id, op["operation"], (op["admission_number"], op["subject"], op["period"]), op["grade"], op["timestamp"])
+                    self.oplog.log_operation(self.op_id, op["operation"], (op["admission_number"], op["subject"], op["period"]), op["grade"], timestamp=datetime.now().isoformat())
                     self.op_id += 1
             elif op["operation"] == "DELETE":
                 existing = self.collection.find_one({
@@ -102,11 +102,11 @@ class MongoDBSystem:
                     "subject": op["subject"],
                     "period": op["period"]
                 })
-                if existing and existing.get("timestamp", "1970-01-01T00:00:00") <= op["timestamp"]:
+                if existing and existing.get("timestamp", "1970-01-01T00:00:00") < op["timestamp"]:
                     self.collection.delete_one({
                         "admission_number": op["admission_number"],
                         "subject": op["subject"],
                         "period": op["period"]
                     })
-                    self.oplog.log_operation(self.op_id, "DELETE", (op["admission_number"], op["subject"], op["period"]), timestamp=op["timestamp"])
+                    self.oplog.log_operation(self.op_id, "DELETE", (op["admission_number"], op["subject"], op["period"]), timestamp=datetime.now().isoformat())
                     self.op_id += 1
