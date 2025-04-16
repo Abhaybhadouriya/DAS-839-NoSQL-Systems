@@ -20,15 +20,13 @@ class HiveSystem:
                 raise Exception(f"Failed to connect to Hive after {max_retries} attempts: {e}")
         self.table = HIVE_CONFIG['table']
         with self.conn.cursor() as cursor:
+            # Corrected CREATE TABLE syntax: exclude partition columns from the column list
             cursor.execute(f"""
                 CREATE TABLE IF NOT EXISTS {self.table} (
-                    admission_number STRING,
-                    subject STRING,
-                    period STRING,
                     grade STRING,
-                    timestamp STRING
+                    timestampD STRING
                 )
-                PARTITIONED BY (admission_number, subject, period)
+                PARTITIONED BY (admission_number STRING, subject STRING, period STRING)
             """)
 
     def insert(self, admission_number, subject, period, grade):
@@ -36,15 +34,16 @@ class HiveSystem:
         with self.conn.cursor() as cursor:
             cursor.execute(f"""
                 CREATE TABLE IF NOT EXISTS temp_grade_roster AS
-                SELECT admission_number, subject, period, grade, timestamp
+                SELECT grade, timestampD
                 FROM {self.table}
                 WHERE NOT (admission_number = '{admission_number}' 
                         AND subject = '{subject}' 
                         AND period = '{period}')
             """)
             cursor.execute(f"""
-                INSERT INTO temp_grade_roster
-                SELECT '{admission_number}', '{subject}', '{period}', '{grade}', '{timestamp}'
+                INSERT INTO TABLE temp_grade_roster
+                PARTITION (admission_number = '{admission_number}', subject = '{subject}', period = '{period}')
+                SELECT '{grade}' AS grade, '{timestamp}' AS timestampD
                 WHERE NOT EXISTS (
                     SELECT 1 FROM {self.table}
                     WHERE admission_number = '{admission_number}' 
@@ -54,7 +53,9 @@ class HiveSystem:
             """)
             cursor.execute(f"""
                 INSERT OVERWRITE TABLE {self.table}
-                SELECT * FROM temp_grade_roster
+                PARTITION (admission_number, subject, period)
+                SELECT grade, timestampD, admission_number, subject, period
+                FROM temp_grade_roster
             """)
             cursor.execute("DROP TABLE IF EXISTS temp_grade_roster")
         self.conn.commit()
@@ -79,25 +80,28 @@ class HiveSystem:
         with self.conn.cursor() as cursor:
             cursor.execute(f"""
                 CREATE TABLE IF NOT EXISTS temp_grade_roster AS
-                SELECT admission_number, subject, period, grade, timestamp
+                SELECT grade, timestampD, admission_number, subject, period
                 FROM {self.table}
             """)
             cursor.execute(f"""
                 INSERT OVERWRITE TABLE temp_grade_roster
-                SELECT admission_number, subject, period,
-                       CASE WHEN admission_number = '{admission_number}' 
-                            AND subject = '{subject}' 
-                            AND period = '{period}' THEN '{grade}'
-                            ELSE grade END,
-                       CASE WHEN admission_number = '{admission_number}' 
-                            AND subject = '{subject}' 
-                            AND period = '{period}' THEN '{timestamp}'
-                            ELSE timestamp END
+                SELECT 
+                    CASE WHEN admission_number = '{admission_number}' 
+                         AND subject = '{subject}' 
+                         AND period = '{period}' THEN '{grade}'
+                         ELSE grade END AS grade,
+                    CASE WHEN admission_number = '{admission_number}' 
+                         AND subject = '{subject}' 
+                         AND period = '{period}' THEN '{timestamp}'
+                         ELSE timestampD END AS timestampD,
+                    admission_number, subject, period
                 FROM temp_grade_roster
             """)
             cursor.execute(f"""
                 INSERT OVERWRITE TABLE {self.table}
-                SELECT * FROM temp_grade_roster
+                PARTITION (admission_number, subject, period)
+                SELECT grade, timestampD, admission_number, subject, period
+                FROM temp_grade_roster
             """)
             cursor.execute("DROP TABLE IF EXISTS temp_grade_roster")
         self.conn.commit()
@@ -109,7 +113,7 @@ class HiveSystem:
         with self.conn.cursor() as cursor:
             cursor.execute(f"""
                 CREATE TABLE IF NOT EXISTS temp_grade_roster AS
-                SELECT admission_number, subject, period, grade, timestamp
+                SELECT grade, timestampD, admission_number, subject, period
                 FROM {self.table}
                 WHERE NOT (admission_number = '{admission_number}' 
                         AND subject = '{subject}' 
@@ -117,7 +121,9 @@ class HiveSystem:
             """)
             cursor.execute(f"""
                 INSERT OVERWRITE TABLE {self.table}
-                SELECT * FROM temp_grade_roster
+                PARTITION (admission_number, subject, period)
+                SELECT grade, timestampD, admission_number, subject, period
+                FROM temp_grade_roster
             """)
             cursor.execute("DROP TABLE IF EXISTS temp_grade_roster")
         self.conn.commit()
@@ -137,7 +143,7 @@ class HiveSystem:
             if op["operation"] in ["INSERT", "UPDATE"] and op["grade"]:
                 with self.conn.cursor() as cursor:
                     cursor.execute(f"""
-                        SELECT timestamp FROM {self.table} 
+                        SELECT timestampD FROM {self.table} 
                         WHERE admission_number = '{op["admission_number"]}' 
                         AND subject = '{op["subject"]}' 
                         AND period = '{op["period"]}'
@@ -149,7 +155,7 @@ class HiveSystem:
             elif op["operation"] == "DELETE":
                 with self.conn.cursor() as cursor:
                     cursor.execute(f"""
-                        SELECT timestamp FROM {self.table} 
+                        SELECT timestampD FROM {self.table} 
                         WHERE admission_number = '{op["admission_number"]}' 
                         AND subject = '{op["subject"]}' 
                         AND period = '{op["period"]}'

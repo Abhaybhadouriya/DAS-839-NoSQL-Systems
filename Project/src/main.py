@@ -8,7 +8,7 @@ load_dotenv()  # Load .env file
 def main():
     systems = {
         "MONGO": MongoDBSystem(),
-        # "HIVE": HiveSystem(),
+        "HIVE": HiveSystem(),
         "SQL": MySQLSystem()
     }
 
@@ -42,8 +42,6 @@ def main():
             system_name, operation = cmd.split(".", 1)
             system_name = system_name.strip()
             operation = operation.strip()
-            
-            # print(operation.split("(")[0])
 
             op_type = operation.split("(")[0]
             data = operation[operation.find("(")+1:operation.find(")")]

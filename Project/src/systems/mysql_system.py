@@ -97,7 +97,6 @@ class MySQLSystem:
 
         for op in operations:
             if op["operation"] in ["INSERT", "UPDATE"] and op["grade"]:
-                
                 with self.conn.cursor() as cursor:
                     cursor.execute(f"""
                         SELECT timestamp FROM {self.table} 

@@ -14,7 +14,9 @@ MONGO_CONFIG = {
 HIVE_CONFIG = {
     'host': os.environ.get('HIVE_HOST', 'localhost'),
     'port': int(os.environ.get('HIVE_PORT', 10000)),
-    'database': os.environ.get('HIVE_DB', 'default')
+    'database': os.environ.get('HIVE_DB', 'default'),
+    'table' : os.environ.get('HIVE_TABLE','grade_roster')
+
 }
 
 MYSQL_CONFIG = {
