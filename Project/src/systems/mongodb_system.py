@@ -68,8 +68,9 @@ class MongoDBSystem:
 
     def merge(self, other_system_name):
         oplog_path = OPLOG_PATHS.get(other_system_name.lower())
+        print(other_system_name)
         if not oplog_path:
-            print(f"Invalid system: {other_system_name}")
+            print(f"Invalid system MG_MERGE: {other_system_name}")
             return
 
         other_oplog = OpLogManager(oplog_path)

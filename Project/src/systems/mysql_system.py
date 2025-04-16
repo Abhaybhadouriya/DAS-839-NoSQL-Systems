@@ -6,7 +6,7 @@ from datetime import datetime
 
 class MySQLSystem:
     def __init__(self):
-        self.oplog = OpLogManager(OPLOG_PATHS["mysql"])
+        self.oplog = OpLogManager(OPLOG_PATHS["sql"])
         self.op_id = 1
         max_retries = 3
         for attempt in range(max_retries):
@@ -32,7 +32,7 @@ class MySQLSystem:
                     subject VARCHAR(255),
                     period VARCHAR(255),
                     grade VARCHAR(10),
-                    timestamp VARCHAR(32),
+                    timestamp VARCHAR(50),
                     PRIMARY KEY (admission_number, subject, period)
                 )
             """)
@@ -64,11 +64,13 @@ class MySQLSystem:
     def update(self, admission_number, subject, period, grade):
         timestamp = datetime.now().isoformat()
         with self.conn.cursor() as cursor:
+         
             cursor.execute(f"""
                 UPDATE {self.table} 
                 SET grade = %s, timestamp = %s 
                 WHERE admission_number = %s AND subject = %s AND period = %s
             """, (grade, timestamp, admission_number, subject, period))
+
         self.conn.commit()
         self.oplog.log_operation(self.op_id, "UPDATE", (admission_number, subject, period), grade, timestamp)
         self.op_id += 1
@@ -87,7 +89,7 @@ class MySQLSystem:
     def merge(self, other_system_name):
         oplog_path = OPLOG_PATHS.get(other_system_name.lower())
         if not oplog_path:
-            print(f"Invalid system: {other_system_name}")
+            print(f"Invalid system SQL_Merge: {other_system_name}")
             return
 
         other_oplog = OpLogManager(oplog_path)
@@ -95,6 +97,7 @@ class MySQLSystem:
 
         for op in operations:
             if op["operation"] in ["INSERT", "UPDATE"] and op["grade"]:
+                
                 with self.conn.cursor() as cursor:
                     cursor.execute(f"""
                         SELECT timestamp FROM {self.table} 

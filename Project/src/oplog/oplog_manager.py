@@ -23,11 +23,32 @@ class OpLogManager:
             with open(self.log_file, 'r') as f:
                 for line in f:
                     parts = line.strip().split(", ")
+                    if len(parts) < 2:
+                        continue  # Skip invalid lines
+                    
                     op_id = int(parts[0])
                     op_type = parts[1].split(" ")[0]
-                    admission_number, subject, period= map(str.strip, parts[1][parts[1].find("(")+1:parts[1].find(")")].split(","))
+                    
+                    # Safely parse the (admission_number, subject, period)
+                    full_args = parts[1]
+                    start = full_args.find("(") + 1
+                    end = full_args.rfind(")")
+                    if end == -1:  # If ')' is missing, use till end of string
+                        end = len(full_args)
+                    
+                    try:
+                        admission_number, subject, period = map(str.strip, full_args[start:end].split(","))
+                    except ValueError:
+                        print(f"Malformed line (args): {line.strip()}")
+                        continue  # Skip lines with bad format
+                    
+                    # Optional fields
                     grade = parts[2].strip() if len(parts) > 2 else None
-                    timestamp = parts[3].strip() if len(parts) > 3 else None 
+                    timestamp = None
+                    if len(parts) > 3:
+                        timestamp = parts[3].strip()
+                        if timestamp.endswith(")"):
+                            timestamp = timestamp[:-1]                    
                     operations.append({
                         "op_id": op_id,
                         "operation": op_type,
@@ -39,4 +60,5 @@ class OpLogManager:
                     })
         except FileNotFoundError:
             pass
+        
         return sorted(operations, key=lambda x: (x["op_id"], x["timestamp"] or "1970-01-01T00:00:00"))

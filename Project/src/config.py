@@ -29,5 +29,5 @@ MYSQL_CONFIG = {
 OPLOG_PATHS = {
     "mongo": "logs/oplog_mongo.log",
     "hive": "logs/oplog_hive.log",
-    "mysql": "logs/oplog_mysql.log"
+    "sql": "logs/oplog_mysql.log"
 }

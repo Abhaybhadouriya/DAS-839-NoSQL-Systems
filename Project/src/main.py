@@ -23,13 +23,21 @@ def main():
         if cmd.startswith("MERGE"):
             systems_str = cmd[cmd.find("(") + 1 : cmd.find(")")]
             system1, system2 = map(str.strip, systems_str.split(","))
-            print(f"Executing MERGE({system1}, {system2})")
+            system1= system1.strip().upper()
+            system2= system2.strip().upper()
+            
+
             if 'HIVE' in (system1, system2):
                 continue
-            if system1 in systems:
+            if system1 in systems and system2 in systems:
                 systems[system1].merge(system2)
             else:
-                print(f"Invalid system: {system1}")
+                if system1 not in systems:
+                    print(f"Invalid system 1: {system1}")
+                if system2 not in systems:
+                    print(f"Invalid system 2: {system2}")
+            
+
         else:
             system_name, operation = cmd.split(".", 1)
             system_name = system_name.strip()
@@ -45,7 +53,7 @@ def main():
             period = parts[2]
             grade = parts[3] if len(parts) > 3 else None
             if system_name not in systems:
-                print(f"Invalid system: {system_name}")
+                print(f"Invalid system else: {system_name}")
                 continue
 
             try:
