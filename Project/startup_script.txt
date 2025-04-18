@@ -16,6 +16,8 @@ start-yarn.sh
 start-dfs.sh
 hive --service metastore // in metastore dir
 hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10000
+connect to hive database using  beeline
+beeline -u jdbc:hive2://localhost:10000 -n abhay
 
 python
 source venv/bin/activate
