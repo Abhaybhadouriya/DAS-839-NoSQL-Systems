@@ -50,7 +50,7 @@ def drop_mysql_tables():
         print(f"Error dropping MySQL tables: {e}")
     finally:
         conn.close()
-
+        print("MySQL connection closed.")
 def delete_logs():
     try:
         for log_path in OPLOG_PATHS.values():

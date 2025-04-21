@@ -165,7 +165,8 @@ class MongoDBSystem:
         )
         self.oplog.log_operation(self.op_id, "SET", (sid, course), grade, timestamp)
         self.op_id += 1
-
+    # DELETE METHOD IMPLEMENTED it doesn't require a grade parameter.
+    
     def delete(self, sid, course):
         timestamp = datetime.now().isoformat()
         self.collection.delete_one({"sid": sid, "course": course})

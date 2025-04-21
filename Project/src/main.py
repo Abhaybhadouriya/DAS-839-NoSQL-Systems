@@ -80,7 +80,7 @@ from src.systems.hive_system import HiveSystem
 from src.systems.mysql_system import MySQLSystem
 from dotenv import load_dotenv
 
-load_dotenv()  # Load .env file
+load_dotenv()  
 
 def main():
     systems = {
@@ -116,7 +116,6 @@ def main():
         case _:
             print("Invalid choice, using default input file: tests/testcase.in")
             choiceInputFile = "tests/testcase.in"
-    # Read commands from the input file
     with open(choiceInputFile, "r") as f:
         commands = f.readlines()
 

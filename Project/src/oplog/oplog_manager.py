@@ -90,12 +90,12 @@ class OpLogManager:
                 for line in f:
                     parts = line.strip().split(", ")
                     if len(parts) < 2:
-                        continue  # Skip invalid lines
+                        continue  
                     
                     op_id = int(parts[0])
                     op_type = parts[1].split(" ")[0]
                     
-                    # Safely parse the (sid, course)
+                    # parse the (sid, course)
                     full_args = parts[1]
                     start = full_args.find("(") + 1
                     end = full_args.rfind(")")

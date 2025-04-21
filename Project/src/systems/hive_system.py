@@ -508,7 +508,8 @@ class HiveSystem:
         finally:
             if os.path.exists(temp_file):
                 os.remove(temp_file)
-
+    # DELETE METHOD IMPLEMENTED it doesn't require a grade parameter.
+    # It only requires the sid and course to identify the partition to be deleted.
     def delete(self, sid, course):
         timestamp = datetime.now().isoformat()
         with self.conn.cursor() as cursor:

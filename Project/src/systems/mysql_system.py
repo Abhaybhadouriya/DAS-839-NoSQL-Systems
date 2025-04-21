@@ -212,7 +212,7 @@ class MySQLSystem:
         self.conn.commit()
         self.oplog.log_operation(self.op_id, "SET", (sid, course), grade, timestamp)
         self.op_id += 1
-
+    # DELETE METHOD IMPLEMENTED it doesn't require a grade parameter.
     def delete(self, sid, course):
         timestamp = datetime.now().isoformat()
         with self.conn.cursor() as cursor:
