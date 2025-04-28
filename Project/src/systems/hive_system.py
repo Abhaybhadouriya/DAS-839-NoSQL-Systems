@@ -425,8 +425,7 @@ class HiveSystem:
             f.write(f"{grade}\t{timestamp}\n")
         return temp_file
 
-    def insert(self, sid, course, grade):
-        timestamp = datetime.now().isoformat()
+    def insert(self, sid, course, grade,timestamp = datetime.now().isoformat()):
         temp_file = self._create_temp_data_file(grade, timestamp)
         
         try:
@@ -477,8 +476,7 @@ class HiveSystem:
         self.op_id += 1
         return result[0] if result else None
 
-    def update(self, sid, course, grade):
-        timestamp = datetime.now().isoformat()
+    def update(self, sid, course, grade, timestamp = datetime.now().isoformat()):
         temp_file = self._create_temp_data_file(grade, timestamp)
         
         try:
@@ -572,17 +570,23 @@ class HiveSystem:
                             should_insert = False
                             if result:
                                 grade, existing_timestamp = result
-                                if existing_timestamp is None or op["timestamp"] > existing_timestamp or op["grade"] != grade:
+                                if existing_timestamp is None or op["timestamp"] >= existing_timestamp or op["grade"] != grade:
                                     should_update = True
                             else:
                                 should_insert = True
                                 
                             if should_update:
+                                with open("test.txt", "a") as file:
+                                    # Write data to the file
+                                    file.write("merge called from sql.\n")
                                 print(f"Processing {op['operation']} for {op['sid']}")
-                                self.update(op["sid"], op["course"], op["grade"])
+                                self.update(op["sid"], op["course"], op["grade"],op["timestamp"])
                             elif should_insert:
+                                with open("test.txt", "a") as file:
+                                    # Write data to the file
+                                    file.write("merge called from sql.\n")
                                 print(f"Processing {op['operation']} for {op['sid']}")
-                                self.insert(op["sid"], op["course"], op["grade"])
+                                self.insert(op["sid"], op["course"], op["grade"],op["timestamp"])
                             else:
                                 print(f"Skipping {op['operation']} - newer timestamp exists")
                                 
@@ -591,12 +595,12 @@ class HiveSystem:
                         #     (op["sid"], op["course"]),
                         #     op["grade"], timestamp=datetime.now().isoformat()
                         # )
-                        self.oplog.log_operation(
-                            self.op_id, op["operation"],
-                            (op["sid"], op["course"]),
-                            op["grade"], op["timestamp"]
-                        )
-                        self.op_id += 1
+                        # self.oplog.log_operation(
+                        #     self.op_id, op["operation"],
+                        #     (op["sid"], op["course"]),
+                        #     op["grade"], op["timestamp"]
+                        # )
+                        # self.op_id += 1
                         
                     except Exception as e:
                         print(f"Error processing {op['operation']} merge operation: {str(e)}")

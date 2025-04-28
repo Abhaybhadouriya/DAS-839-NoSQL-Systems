@@ -141,8 +141,7 @@ class MongoDBSystem:
             unique=True
         )
 
-    def insert(self, sid, course, grade):
-        timestamp = datetime.now().isoformat()
+    def insert(self, sid, course, grade, timestamp = datetime.now().isoformat()):
         self.collection.update_one(
             {"sid": sid, "course": course},
             {"$set": {"grade": grade, "timestamp": timestamp}},
@@ -187,7 +186,10 @@ class MongoDBSystem:
             print(op)
             if op["operation"] in ["SET"] and op["grade"]:
                 existing = self.collection.find_one({"sid": op["sid"], "course": op["course"]})
-                if not existing or (existing and existing.get("timestamp", "1970-01-01T00:00:00") < op["timestamp"]):
+                if not existing or (existing and existing.get("timestamp", "1970-01-01T00:00:00") <= op["timestamp"]):
+                    with open("test.txt", "a") as file:
+                            # Write data to the file
+                            file.write("merge called from sql.\n")
                     self.collection.update_one(
                         {"sid": op["sid"], "course": op["course"]},
                         {"$set": {"grade": op["grade"], "timestamp": op["timestamp"]}},

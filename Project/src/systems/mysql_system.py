@@ -177,8 +177,8 @@ class MySQLSystem:
             """)
         self.conn.commit()
 
-    def insert(self, sid, course, grade):
-        timestamp = datetime.now().isoformat()
+    def insert(self, sid, course, grade, timestamp = datetime.now().isoformat()):
+       
         with self.conn.cursor() as cursor:
             cursor.execute(f"""
                 INSERT INTO {self.table} (sid, course, grade, timestamp)
@@ -244,7 +244,11 @@ class MySQLSystem:
                     existing_timestamp = cursor.fetchone()
                     
                     # Compare only if both timestamps are valid
-                    if not existing_timestamp or (existing_timestamp[0] and existing_timestamp[0] < op["timestamp"]):
+                    if not existing_timestamp or (existing_timestamp[0] and existing_timestamp[0] <= op["timestamp"]):
+                                                # Open the file in append mode
+                        with open("test.txt", "a") as file:
+                            # Write data to the file
+                            file.write("merge called from sql.\n")
                         cursor.execute(f"""
                             INSERT INTO {self.table} (sid, course, grade, timestamp)
                             VALUES (%s, %s, %s, %s)
@@ -262,8 +266,8 @@ class MySQLSystem:
                         WHERE sid = %s AND course = %s
                     """, (op["sid"], op["course"]))
                     existing_timestamp = cursor.fetchone()
-                   
-                    if not existing_timestamp or (existing_timestamp[0] and existing_timestamp[0] < op["timestamp"]):
+                    # not removed
+                    if existing_timestamp or (existing_timestamp[0] and existing_timestamp[0] < op["timestamp"]):
                         cursor.execute(f"""
                             DELETE FROM {self.table} 
                             WHERE sid = %s AND course = %s

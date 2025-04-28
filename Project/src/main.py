@@ -90,7 +90,7 @@ def main():
     }
     choiceInputFile = input("Enter the input file name (default: 1  =  tests/testcase_1.in) else \n1. choose 1 = tests/testcase_1.in)\n2. choose 2 = tests/testcase_2.in)\n3. choose 3 = tests/testcase_3.in)\n4. choose 4 = tests/testcase_4.in)\n5. choose 5 = tests/testcase_5.in)\n6. choose 6 = tests/testcase_6.in)\n7. choose 7 = tests/testcase_7.in)\n8. choose 8 = tests/testcase_8.in)\n9. choose 9 = tests/testcase_9.in)\n10. choose 10 = tests/testcase_10.in)\n")
     if not choiceInputFile:
-        choiceInputFile = "tests/testcase.in"
+        choiceInputFile = 1
     print(f"Using input file: {choiceInputFile}")
     match choiceInputFile:
         case "1":
@@ -115,7 +115,7 @@ def main():
             choiceInputFile = "tests/testcase_10.in"
         case _:
             print("Invalid choice, using default input file: tests/testcase.in")
-            choiceInputFile = "tests/testcase.in"
+            choiceInputFile = "tests/testcase_11.in"
     with open(choiceInputFile, "r") as f:
         commands = f.readlines()
 
@@ -123,7 +123,7 @@ def main():
         cmd = cmd.strip()
         if not cmd:
             continue
-
+ 
         if cmd.startswith("HIVE") or cmd.startswith("MONGO") or cmd.startswith("SQL"):
             system_name, operation = cmd.split(".", 1)
             system_name = system_name.strip()
